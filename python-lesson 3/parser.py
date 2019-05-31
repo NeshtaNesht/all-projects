@@ -46,7 +46,6 @@ def get_page_data(html):
         }
         # пишем данные в файл
         write_csv(data)
-        # for td in tds:
 
 
 
