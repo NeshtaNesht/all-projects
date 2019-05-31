@@ -1,5 +1,5 @@
-from bs4 import BeautifulSoup
-import re
+from bs4 import BeautifulSoup # класс для работы с DOM
+import re # класс регулярных выражений
 
 # .find()
 # .find_all()
@@ -13,16 +13,17 @@ import re
 # .find_previous_sibling() перемещение между соседними тегами
 
 def get_copywriter(tag):
-    whois = tag.find("div", id = "whois").text.strip()
-    if "Copywriter" in whois:
-        return tag
+    whois = tag.find("div", id = "whois").text.strip() # поиск тега div с id whois и получение текста
+    if "Copywriter" in whois: # если Copywriter найден в whois 
+        return tag # возвращаем тег
     return None
 
 def get_salary(s):
-    pattern = r"\d{1,9}"
+    pattern = r"\d{1,9}" # паттерн. ищем только цифры от 1 до 9
     # salary = re.findall(pattern, s)
-    salary = re.search(pattern, s).group()
-    print(salary)
+    salary = re.search(pattern, s).group() # присваиваем переменной salary
+    # найденные и сгруппированные данные из строки s на основе паттерна
+    print(salary) 
 
 def main():
     file = open("index.html").read()        
