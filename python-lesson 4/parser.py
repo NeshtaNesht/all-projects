@@ -48,8 +48,8 @@ def get_page_data(html):
 
 
 def main():
-    # for i in range(0, 10):
-        pattern = "https://yandex.ru/search/?lr=21726&text=yandex&p=0"
+    for i in range(0, 10):
+        pattern = "https://yandex.ru/search/?lr=21726&text=yandex&p=" + str(i)
         get_page_data(get_html(pattern))
 
 
