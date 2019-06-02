@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Оптовый_склад_Wivichan
 {
-    public partial class Form1 : Form
+    public partial class FAuthorization : Form
     {
-        public Form1()
+        public FAuthorization()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
