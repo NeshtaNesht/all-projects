@@ -16,5 +16,32 @@ namespace Оптовый_склад_Wivichan
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new F_A_Suppliers().ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new F_A_Customers().ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new F_A_Contracts().ShowDialog();
+        }
+
+        private void FAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings.connectionClose();
+            FAuthorization auth = new FAuthorization();
+            auth.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

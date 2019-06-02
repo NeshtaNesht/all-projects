@@ -11,7 +11,7 @@ namespace Оптовый_склад_Wivichan
     static class Settings
     {
         private static string DataSource = @"COMPUTER\SQLEXPRESS01";//Сервер для подключения
-        private static string DataBase = "'Подсчёт готовой продукции'";//База данных. Обязательно в одинарых кавычках
+        private static string DataBase = "'Оптовый склад'";//База данных. Обязательно в одинарых кавычках
         private static string User = null;//Имя пользователя. Изменить, если необходимо
         private static string Password = null;//Пароль пользователя. Изменить, если необходимо
 

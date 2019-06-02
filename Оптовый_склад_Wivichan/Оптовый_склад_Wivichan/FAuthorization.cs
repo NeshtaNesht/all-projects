@@ -19,7 +19,20 @@ namespace Оптовый_склад_Wivichan
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox1.Text == "u")
+                new FUser().Show();
+            else new FAdmin().Show();
+            Visible = false;
+        }
 
+        private void FAuthorization_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings.connectionClose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

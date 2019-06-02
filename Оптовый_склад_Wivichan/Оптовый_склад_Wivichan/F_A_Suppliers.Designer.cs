@@ -44,45 +44,48 @@
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            this.dataGrid.Size = new System.Drawing.Size(685, 325);
+            this.dataGrid.Size = new System.Drawing.Size(685, 326);
             this.dataGrid.TabIndex = 0;
             // 
             // addSup
             // 
             this.addSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addSup.Location = new System.Drawing.Point(12, 21);
+            this.addSup.Location = new System.Drawing.Point(12, 35);
             this.addSup.Name = "addSup";
             this.addSup.Size = new System.Drawing.Size(97, 47);
             this.addSup.TabIndex = 1;
             this.addSup.Text = "Добавить";
             this.addSup.UseVisualStyleBackColor = true;
+            this.addSup.Click += new System.EventHandler(this.addSup_Click);
             // 
             // editSup
             // 
             this.editSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editSup.Location = new System.Drawing.Point(115, 21);
+            this.editSup.Location = new System.Drawing.Point(115, 35);
             this.editSup.Name = "editSup";
             this.editSup.Size = new System.Drawing.Size(97, 47);
             this.editSup.TabIndex = 2;
             this.editSup.Text = "Изменить";
             this.editSup.UseVisualStyleBackColor = true;
+            this.editSup.Click += new System.EventHandler(this.editSup_Click);
             // 
             // delSup
             // 
             this.delSup.BackColor = System.Drawing.Color.Coral;
             this.delSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.delSup.Location = new System.Drawing.Point(600, 21);
+            this.delSup.Location = new System.Drawing.Point(600, 35);
             this.delSup.Name = "delSup";
             this.delSup.Size = new System.Drawing.Size(97, 47);
             this.delSup.TabIndex = 3;
             this.delSup.Text = "Удалить";
             this.delSup.UseVisualStyleBackColor = false;
+            this.delSup.Click += new System.EventHandler(this.delSup_Click);
             // 
             // F_A_Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 425);
+            this.ClientSize = new System.Drawing.Size(709, 426);
             this.Controls.Add(this.delSup);
             this.Controls.Add(this.editSup);
             this.Controls.Add(this.addSup);

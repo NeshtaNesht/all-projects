@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace Оптовый_склад_Wivichan
 {
-    public partial class F_A_AESuppliers : Form
+    public partial class F_A_AECustomers : Form
     {
+        F_A_Customers parentForm;
         int operation;
-        F_A_Suppliers parentForm;
-        public F_A_AESuppliers(F_A_Suppliers _parentForm, int _oper)
+        public F_A_AECustomers(F_A_Customers _parentForm, int oper)
         {
             InitializeComponent();
-            parentForm = _parentForm;//Ссылка на родительскую форму
-            operation = _oper;//Номер операции. 0 - добавить, 1 - изменить.
+            parentForm = _parentForm;
+            operation = oper;
             Fill();
         }
-
         void Fill()
         {
             SqlQuery query = new SqlQuery();
+
             for (int i = 0; i < query.GetAllIdContracts().Tables[0].Rows.Count; i++)
                 comboBox1.Items.Add(query.GetAllIdContracts().Tables[0].Rows[i][0].ToString());
             if (operation == 1)
@@ -43,25 +43,27 @@ namespace Оптовый_склад_Wivichan
                 }
             }
         }
-    
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             SqlQuery query = new SqlQuery();
+
             try
             {
                 int i = 0;
-                query.AddEditSupplier(Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString()), textName.Text, textAddress.Text, textPhone.Text, textInn.Text, int.TryParse(comboBox1.Text, out i) ? i : 0, operation);
+                query.AddEditCustomer(Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString()), textName.Text, textAddress.Text, textPhone.Text, textInn.Text, int.TryParse(comboBox1.Text, out i) ? i : 0, operation);
                 Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Произошла ошибка\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
