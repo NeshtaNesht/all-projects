@@ -14,6 +14,7 @@ namespace Оптовый_склад_Wivichan
     {
         F_A_Contracts parentForm;
         int operation;
+        int id = 0;
         public F_A_AEContracts(F_A_Contracts _parentForm, int oper)
         {
             InitializeComponent();
@@ -25,7 +26,10 @@ namespace Оптовый_склад_Wivichan
         {
             SqlQuery query = new SqlQuery();
             if (operation == 1)
+            {
+                id = Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString());
                 textDur.Text = parentForm.dataGrid.CurrentRow.Cells[1].Value.ToString();
+            }
         }
 
         private void textName_KeyPress(object sender, KeyPressEventArgs e)
@@ -39,7 +43,7 @@ namespace Оптовый_склад_Wivichan
             try
             {
                 int i = 0;
-                query.AddEditContract(Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString()), checkBox1.Checked == true ? -1 : (int.TryParse(textDur.Text, out i) ? i : 0), operation);
+                query.AddEditContract(id, checkBox1.Checked == true ? -1 : (int.TryParse(textDur.Text, out i) ? i : 0), operation);
                 Close();
             }
             catch (Exception ex)

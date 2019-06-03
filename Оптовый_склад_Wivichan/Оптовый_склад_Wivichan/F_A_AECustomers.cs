@@ -14,6 +14,7 @@ namespace Оптовый_склад_Wivichan
     {
         F_A_Customers parentForm;
         int operation;
+        int id = -1;
         public F_A_AECustomers(F_A_Customers _parentForm, int oper)
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Оптовый_склад_Wivichan
             {
                 try
                 {
+                    id = Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString());
                     textName.Text = parentForm.dataGrid.CurrentRow.Cells[1].Value.ToString();
                     textAddress.Text = parentForm.dataGrid.CurrentRow.Cells[2].Value.ToString();
                     textPhone.Text = parentForm.dataGrid.CurrentRow.Cells[3].Value.ToString();
@@ -51,7 +53,8 @@ namespace Оптовый_склад_Wivichan
             try
             {
                 int i = 0;
-                query.AddEditCustomer(Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString()), textName.Text, textAddress.Text, textPhone.Text, textInn.Text, int.TryParse(comboBox1.Text, out i) ? i : 0, operation);
+                
+                query.AddEditCustomer(id, textName.Text, textAddress.Text, textPhone.Text, textInn.Text, int.TryParse(comboBox1.Text, out i) ? i : 0, operation);
                 Close();
             }
             catch (Exception ex)

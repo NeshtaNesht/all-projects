@@ -35,6 +35,11 @@ namespace Оптовый_склад_Wivichan
 
         private void editSup_Click(object sender, EventArgs e)
         {
+            if (dataGrid.CurrentRow.Cells[0].Value == null)
+            {
+                MessageBox.Show("Выберите строку для редактирования", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             F_A_AESuppliers f_A_AES = new F_A_AESuppliers(this, 1);
 
             f_A_AES.Text += " [Работает пользователь: " + Settings.Current_user + "]";

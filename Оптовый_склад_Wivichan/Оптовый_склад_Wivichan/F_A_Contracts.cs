@@ -67,6 +67,11 @@ namespace Оптовый_склад_Wivichan
 
         private void editCont_Click(object sender, EventArgs e)
         {
+            if (dataGrid.CurrentRow == null)
+            {
+                MessageBox.Show("Выберите строку для редактирования", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             F_A_AEContracts f_A_AEC = new F_A_AEContracts(this, 1);
 
             f_A_AEC.Text += " [Работает пользователь: " + Settings.Current_user + "]";

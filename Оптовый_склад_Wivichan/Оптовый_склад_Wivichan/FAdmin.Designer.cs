@@ -70,7 +70,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.Location = new System.Drawing.Point(60, 294);
+            this.button4.Location = new System.Drawing.Point(60, 313);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(203, 35);
             this.button4.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 341);
+            this.ClientSize = new System.Drawing.Size(325, 360);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

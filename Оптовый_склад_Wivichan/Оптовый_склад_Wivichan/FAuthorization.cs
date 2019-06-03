@@ -15,6 +15,7 @@ namespace Оптовый_склад_Wivichan
         public FAuthorization()
         {
             InitializeComponent();
+            Settings.connectionOpen();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,6 +34,11 @@ namespace Оптовый_склад_Wivichan
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FAuthorization_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

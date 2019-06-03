@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Оптовый_склад_Wivichan
 {
-    static class Settings
+    class Settings
     {
         private static string DataSource = @"COMPUTER\SQLEXPRESS01";//Сервер для подключения
         private static string DataBase = "'Оптовый склад'";//База данных. Обязательно в одинарых кавычках
@@ -16,7 +16,7 @@ namespace Оптовый_склад_Wivichan
         private static string Password = null;//Пароль пользователя. Изменить, если необходимо
 
         private static string connect = @"Data Source=" + DataSource + ";Initial Catalog=" + DataBase + ";Integrated Security=True";//Строка соединения
-        private static SqlConnection sql = new SqlConnection(Connect);//Создание объекта подключения
+        private static SqlConnection sql;//Создание объекта подключения
         private static string current_user = null;//Поле для хранения текущего пользователя
 
         public static string Current_user { get => current_user; set => current_user = value; }
@@ -27,11 +27,12 @@ namespace Оптовый_склад_Wivichan
         {
             try
             {
+                sql = new SqlConnection(connect);
                 Sql.Open();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка соединения с БД. Сообщение ошибки: \n" + ex.Message, "Ошибка", 
+                MessageBox.Show("Ошибка соединения с БД. Сообщение ошибки: \n" + ex.Message, "Ошибка",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

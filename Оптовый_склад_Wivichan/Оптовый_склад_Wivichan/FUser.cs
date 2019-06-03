@@ -37,5 +37,46 @@ namespace Оптовый_склад_Wivichan
             if (isExit)
                 Application.Exit();
         }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new F_U_AEAdvent().ShowDialog();
+        }
+
+        private void поискToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new F_U_Search(0).ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            getLastAdventOutByDate(radioButton1.Checked == true ? 0 : 1);
+        }
+        void getLastAdventOutByDate(int operation)
+        {
+            try
+            {
+                SqlQuery query = new SqlQuery();
+                DataSet ds = query.GetLastAdventOutByDate(dateTime.Value, operation);
+                if (ds.Tables[0].Rows.Count == 0)
+                    MessageBox.Show("По выбранному фильтру информация не найдена", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else dataGrid.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка при попытке получить данные из базы данных\n" + ex.Message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void поискToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new F_U_Search(1).ShowDialog();
+        }
+
+        private void добавитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new F_U_AEOut().ShowDialog();
+        }
     }
 }
