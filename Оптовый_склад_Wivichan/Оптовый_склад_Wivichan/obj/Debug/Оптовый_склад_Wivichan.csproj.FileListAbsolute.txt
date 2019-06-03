@@ -1,0 +1,16 @@
+C:\Users\User\Source\Repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\bin\Debug\Оптовый_склад_Wivichan.exe
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\bin\Debug\Оптовый_склад_Wivichan.exe.config
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.FAdmin.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.FAuthorization.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.FUser.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.F_A_AEContracts.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.F_A_AECustomers.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.F_A_AESuppliers.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.F_A_Contracts.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.F_A_Customers.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.F_A_Suppliers.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.Properties.Resources.resources
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.csproj.GenerateResource.Cache
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.exe
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\obj\Debug\Оптовый_склад_Wivichan.pdb
+C:\Users\User\source\repos\MurashovAA3\Оптовый_склад_Wivichan\Оптовый_склад_Wivichan\bin\Debug\Оптовый_склад_Wivichan.pdb

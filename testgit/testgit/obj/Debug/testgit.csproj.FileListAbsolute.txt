@@ -1,0 +1,9 @@
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\bin\Debug\testgit.exe.config
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\bin\Debug\testgit.exe
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\bin\Debug\testgit.pdb
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\obj\Debug\testgit.csprojAssemblyReference.cache
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\obj\Debug\testgit.Properties.Resources.resources
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\obj\Debug\testgit.csproj.GenerateResource.cache
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\obj\Debug\testgit.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\obj\Debug\testgit.exe
+C:\Users\User\Source\Repos\MurashovAA3\testgit\testgit\obj\Debug\testgit.pdb
