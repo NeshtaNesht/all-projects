@@ -47,6 +47,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FastReport, Version=2019.3.2.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\FastReports\FastReport.Net Trial\FastReport.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -208,6 +212,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reports\Отчет - документ по расходу.frx" />
+    <None Include="Reports\Отчет - накладная по приходу.frx" />
+    <None Include="Reports\Отчет - остатки.frx" />
+    <None Include="Reports\Отчет - по приходу.frx" />
+    <None Include="Reports\Отчет - по расходу.frx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

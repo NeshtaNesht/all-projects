@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastReport;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,15 @@ namespace Оптовый_склад_Wivichan
     {
         bool isSave = false;
         bool isSearch = false;
+        bool isAdmin = false;
         int numberSearch = 0;
-        public F_U_AEOut(bool _isSearch = false, int _numberSearch = 0)
+
+        public F_U_AEOut(bool _isSearch = false, int _numberSearch = 0, bool _isAdmin = false)
         {
             InitializeComponent();
             isSearch = _isSearch;
             numberSearch = _numberSearch;
+            isAdmin = _isAdmin;
             Fill();
         }
 
@@ -33,9 +37,11 @@ namespace Оптовый_склад_Wivichan
             {
                 try
                 {
-                    button1.Enabled = button2.Enabled = button3.Enabled =
-                        button4.Enabled = button6.Enabled = textNumber.Enabled = comboBox1.Enabled = dateTime.Enabled = false;
-
+                    if (!isAdmin)
+                    {
+                        button1.Enabled = button3.Enabled =
+                            button4.Enabled = button6.Enabled = textNumber.Enabled = comboBox1.Enabled = dateTime.Enabled = false;
+                    }
                     dataGrid.DataSource = query.GetOutDetailByNumber(numberSearch).Tables[0].DefaultView;
 
                     textNumber.Text = query.GetOutByNumber(numberSearch).Tables[0].Rows[0][0].ToString();
@@ -100,7 +106,7 @@ namespace Оптовый_склад_Wivichan
         }
         void CheckRowAndDelete(FormClosingEventArgs e)
         {
-            if (isSave == false && isSearch == false)
+            if (isSave == false && isSearch == false && isAdmin == false)
             {
                 try
                 {
@@ -182,6 +188,27 @@ namespace Оптовый_склад_Wivichan
         private void F_U_AEOut_FormClosing(object sender, FormClosingEventArgs e)
         {
             CheckRowAndDelete(e);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SqlQuery query = new SqlQuery();
+            try
+            {
+                //Открыть отчет
+                using (Report report = new Report())
+                {
+                    report.Load(Settings.ReportInvoiceOut);
+                    report.SetParameterValue("invoice", textNumber.Text);
+                    report.SetParameterValue("date", dateTime.Value);
+                    report.SetParameterValue("contract", comboBox1.Text);
+                    report.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка при открытии отчета\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

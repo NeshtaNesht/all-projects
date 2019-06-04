@@ -17,6 +17,7 @@ namespace Оптовый_склад_Wivichan
         {
             InitializeComponent();
             query = new SqlQuery();
+            //Заполняем грид данными
             updateSuppliers();
         }
 

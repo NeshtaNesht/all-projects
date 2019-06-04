@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Оптовый_склад_Wivichan
@@ -20,9 +13,24 @@ namespace Оптовый_склад_Wivichan
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "u")
-                new FUser().Show();
-            else new FAdmin().Show();
+            SqlQuery query = new SqlQuery();
+            string login = textBox1.Text;
+            string password = textBox2.Text;
+            if (!login.Equals(query.GetUser(login, password).Tables[0].Rows[0][0].ToString()) 
+                  && !password.Equals(query.GetUser(login, password).Tables[0].Rows[0][1].ToString()))
+            {
+                MessageBox.Show("Пользователь с таким логином и паролем не найден", "Ошибка", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                if (query.GetUser(login, password).Tables[0].Rows[0][2].ToString() == "Администратор")
+                    new FAdmin().Show();
+                else new FUser().Show();
+                //Запоминаем пользователя
+                Settings.Current_user = login;
+            }
             Visible = false;
         }
 

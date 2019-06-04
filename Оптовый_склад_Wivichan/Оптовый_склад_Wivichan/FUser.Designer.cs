@@ -46,6 +46,8 @@
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.остаткиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.просмотрОстатковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +57,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
             this.приходToolStripMenuItem,
-            this.расходToolStripMenuItem});
+            this.расходToolStripMenuItem,
+            this.остаткиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(724, 24);
@@ -126,14 +129,14 @@
             // добавитьToolStripMenuItem1
             // 
             this.добавитьToolStripMenuItem1.Name = "добавитьToolStripMenuItem1";
-            this.добавитьToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.добавитьToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.добавитьToolStripMenuItem1.Text = "Добавить";
             this.добавитьToolStripMenuItem1.Click += new System.EventHandler(this.добавитьToolStripMenuItem1_Click);
             // 
             // поискToolStripMenuItem1
             // 
             this.поискToolStripMenuItem1.Name = "поискToolStripMenuItem1";
-            this.поискToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.поискToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.поискToolStripMenuItem1.Text = "Поиск";
             this.поискToolStripMenuItem1.Click += new System.EventHandler(this.поискToolStripMenuItem1_Click);
             // 
@@ -155,6 +158,7 @@
             this.btnCreateReport.TabIndex = 3;
             this.btnCreateReport.Text = "Сформировать отчет";
             this.btnCreateReport.UseVisualStyleBackColor = true;
+            this.btnCreateReport.Click += new System.EventHandler(this.btnCreateReport_Click);
             // 
             // radioButton1
             // 
@@ -208,6 +212,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // остаткиToolStripMenuItem
+            // 
+            this.остаткиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.просмотрОстатковToolStripMenuItem});
+            this.остаткиToolStripMenuItem.Name = "остаткиToolStripMenuItem";
+            this.остаткиToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.остаткиToolStripMenuItem.Text = "Склад";
+            // 
+            // просмотрОстатковToolStripMenuItem
+            // 
+            this.просмотрОстатковToolStripMenuItem.Name = "просмотрОстатковToolStripMenuItem";
+            this.просмотрОстатковToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.просмотрОстатковToolStripMenuItem.Text = "Просмотр остатков на складе";
+            this.просмотрОстатковToolStripMenuItem.Click += new System.EventHandler(this.просмотрОстатковToolStripMenuItem_Click);
+            // 
             // FUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +275,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поискToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem остаткиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem просмотрОстатковToolStripMenuItem;
     }
 }

@@ -12,7 +12,7 @@ namespace Оптовый_склад_Wivichan
 {
     public partial class F_A_Contracts : Form
     {
-        bool isDelete = false;
+        bool isDelete = false;//Флаг просмотра удаленных контрактов
         SqlQuery query;
         public F_A_Contracts()
         {

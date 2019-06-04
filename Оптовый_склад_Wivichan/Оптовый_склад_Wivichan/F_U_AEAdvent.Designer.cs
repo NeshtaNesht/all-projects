@@ -34,13 +34,13 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,16 +102,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(180, 86);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 49);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Изменить позицию";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(527, 86);
@@ -142,6 +132,7 @@
             this.button5.TabIndex = 10;
             this.button5.Text = "Сформировать отчет";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -171,18 +162,28 @@
             this.dateTime.Size = new System.Drawing.Size(162, 20);
             this.dateTime.TabIndex = 13;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(180, 86);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(132, 49);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Изменить позицию";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // F_U_AEAdvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 521);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.dateTime);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.comboBox1);
@@ -209,7 +210,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -217,5 +217,6 @@
         public System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTime;
+        private System.Windows.Forms.Button button2;
     }
 }

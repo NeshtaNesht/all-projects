@@ -43,5 +43,17 @@ namespace Оптовый_склад_Wivichan
         {
             Close();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            F_U_Search search = new F_U_Search(0, true);
+            search.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            F_U_Search search = new F_U_Search(1, true);
+            search.ShowDialog();
+        }
     }
 }

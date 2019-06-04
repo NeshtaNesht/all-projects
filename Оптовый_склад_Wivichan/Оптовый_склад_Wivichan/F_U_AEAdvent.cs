@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastReport;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,16 @@ namespace Оптовый_склад_Wivichan
 {
     public partial class F_U_AEAdvent : Form
     {
-        bool isSave = false;
-        bool isSearch = false;
+        bool isSave = false;//Флаг сохранения
+        bool isSearch = false;//Флаг поиска
+        bool isAdmin = false;//Флаг админа
         int numberSearch = 0;
-        public F_U_AEAdvent(bool _isSearch = false, int _numberSearch = 0)
+        public F_U_AEAdvent(bool _isSearch = false, int _numberSearch = 0, bool _isAdmin = false)
         {
             InitializeComponent();
             isSearch = _isSearch;
             numberSearch = _numberSearch;
+            isAdmin = _isAdmin;
             Fill();
         }
 
@@ -29,13 +32,18 @@ namespace Оптовый_склад_Wivichan
             SqlQuery query = new SqlQuery();
             for (int i = 0; i < query.GetAllIdContracts().Tables[0].Rows.Count; i++)
                 comboBox1.Items.Add(query.GetAllIdContracts().Tables[0].Rows[i][0].ToString());
+            //Если это поиск
             if (isSearch == true)
             {
                 try
                 {
-                    button1.Enabled = button2.Enabled = button3.Enabled =
-                        button4.Enabled = button6.Enabled = textNumber.Enabled = comboBox1.Enabled = dateTime.Enabled = false;
-
+                    //Проверка на админа
+                    if (!isAdmin)
+                    {
+                        button1.Enabled = button2.Enabled = button3.Enabled =
+                            button4.Enabled = button6.Enabled = textNumber.Enabled = comboBox1.Enabled = dateTime.Enabled = false;
+                    }
+                    //Заполняем грид данными
                     dataGrid.DataSource = query.GetAdventDetailByNumber(numberSearch).Tables[0].DefaultView;
 
                     textNumber.Text = query.GetAdventByNumber(numberSearch).Tables[0].Rows[0][0].ToString();
@@ -48,12 +56,14 @@ namespace Оптовый_склад_Wivichan
                     MessageBox.Show("Данные по приходу не найдены\n" + ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+                //Обновляем детали прихода
                 updateAventDetail();
             }
         }
 
         private void F_U_AEAdvent_Load(object sender, EventArgs e)
         {
+            //Если это не поиск
             if (isSearch == false)
             {
                 try
@@ -79,10 +89,12 @@ namespace Оптовый_склад_Wivichan
 
         void CheckRowAndDelete(FormClosingEventArgs e)
         {
-            if (isSave == false && isSearch == false)
+            //Проверяем, что это не операция сохранения, поиска и что пользователь попал к нам не из админки
+            if (isSave == false && isSearch == false && isAdmin)
             {
                 try
                 {
+                    //Удаляем данные по приходу
                     SqlCommand cmd = new SqlCommand(@"DELETE FROM Advent_Detail WHERE id_advent = (SELECT TOP (1) a.id FROM Advent a ORDER BY a.id DESC)
                                                         DELETE FROM Advent WHERE id = IDENT_CURRENT('Advent')");
                     cmd.Connection = Settings.Sql;
@@ -122,6 +134,7 @@ namespace Оптовый_склад_Wivichan
             SqlQuery query = new SqlQuery();
             try
             {
+                //Если это не поиск, то заполняем грид данными
                 if (isSearch == false)
                     dataGrid.DataSource = query.GetAdventDetail().Tables[0].DefaultView;
             }
@@ -142,6 +155,7 @@ namespace Оптовый_склад_Wivichan
 
             F_U_AEA.Text += " [Работает пользователь: " + Settings.Current_user + "]";
             F_U_AEA.Text = "Добавить позицию прихода";
+            //Открываемой форме ставим событие при закрытии на обновление данных грида
             F_U_AEA.FormClosing += (s, ev) =>
             {
                 updateAventDetail();
@@ -187,6 +201,27 @@ namespace Оптовый_склад_Wivichan
         private void textNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             Settings.textOnlyNumber(e);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SqlQuery query = new SqlQuery();
+            try
+            {
+                //Открыть отчет
+                using (Report report = new Report())
+                {
+                    report.Load(Settings.ReportInvoiceAdvent);
+                    report.SetParameterValue("invoice", textNumber.Text);
+                    report.SetParameterValue("date", dateTime.Value);
+                    report.SetParameterValue("contract", comboBox1.Text);
+                    report.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка при открытии отчета\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

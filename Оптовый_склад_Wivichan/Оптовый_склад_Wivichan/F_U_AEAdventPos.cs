@@ -12,14 +12,15 @@ namespace Оптовый_склад_Wivichan
 {
     public partial class F_U_AEAdventPos : Form
     {
-        F_U_AEAdvent parentForm;
-        int operation;
-        int id = 0;
+        F_U_AEAdvent parentForm; //Ссылка на родительскую форму
+        int operation; //Номер операции
+        int id = 0; //Переменная для хранения id
         public F_U_AEAdventPos(F_U_AEAdvent _parentForm, int oper)
         {
             InitializeComponent();
             parentForm = _parentForm;
             operation = oper;
+            //Заполняем форму данными
             Fill();
         }
 
@@ -28,6 +29,7 @@ namespace Оптовый_склад_Wivichan
             SqlQuery query = new SqlQuery();
             for (int i = 0; i < query.GetAllUnits().Tables[0].Rows.Count; i++)
                 comboUnits.Items.Add(query.GetAllUnits().Tables[0].Rows[i][0].ToString());
+            //Если это изменение данных, заполняем данные из выделенной строки datagrid родителя
             if(operation == 1)
             {
                 id = Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString());
@@ -35,7 +37,7 @@ namespace Оптовый_склад_Wivichan
                 comboUnits.Text = parentForm.dataGrid.CurrentRow.Cells[2].Value.ToString();
                 textCount.Text = parentForm.dataGrid.CurrentRow.Cells[3].Value.ToString();
                 textPrice.Text = parentForm.dataGrid.CurrentRow.Cells[4].Value.ToString();
-
+                //Обновляем общую цену
                 updateTotal();
             }
         }
@@ -52,6 +54,7 @@ namespace Оптовый_склад_Wivichan
             SqlQuery query = new SqlQuery();
             try
             {
+                //Переменные для попытки парсинга
                 int i = 0;
                 double d = 0;
                 int p = 0;

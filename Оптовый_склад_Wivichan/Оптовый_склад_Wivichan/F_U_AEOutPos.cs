@@ -15,6 +15,7 @@ namespace Оптовый_склад_Wivichan
         F_U_AEOut parentForm;
         int operation;
         int id = 0;
+        int count = 0;
         public F_U_AEOutPos(F_U_AEOut _parentForm, int oper)
         {
             InitializeComponent();
@@ -39,8 +40,10 @@ namespace Оптовый_склад_Wivichan
                 {
                     id = Convert.ToInt32(parentForm.dataGrid.CurrentRow.Cells[0].Value.ToString());
                     //label5.Text += query.GetCountPriceByProduct(comboBox1.Text).Tables[0].Rows[0][0].ToString();
-                    label6.Text += query.GetCountPriceByProduct(comboBox1.Text).Tables[0].Rows[0][1].ToString();
-                    textCount.Text = parentForm.dataGrid.CurrentRow.Cells[1].Value.ToString();
+                    comboBox1.Text = parentForm.dataGrid.CurrentRow.Cells[1].Value.ToString();
+                    label6.Text = query.GetCountPriceByProduct(comboBox1.Text).Tables[0].Rows[0][1].ToString();
+                    textCount.Text = parentForm.dataGrid.CurrentRow.Cells[3].Value.ToString();
+                    textPrice.Text = parentForm.dataGrid.CurrentRow.Cells[4].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -54,7 +57,7 @@ namespace Оптовый_склад_Wivichan
             SqlQuery query = new SqlQuery();
             try
             {
-                if(int.Parse(label5.Text) < int.Parse(textCount.Text))
+                if((int.Parse(label5.Text) <= int.Parse(textCount.Text)))
                 {
                     MessageBox.Show("Количество расхода не может быть больше количества остатков на складе", "Внимание", 
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -107,8 +110,8 @@ namespace Оптовый_склад_Wivichan
         {
             SqlQuery query = new SqlQuery();
             int a = 0, b = 0;
-            int j = (int.TryParse(query.GetCountPriceByProduct(comboBox1.Text).Tables[0].Rows[0][0].ToString(), out a) ? a : 0)
-                - (int.TryParse(query.GetCountProductOutDetail(comboBox1.Text).Tables[0].Rows[0][0].ToString(), out b) ? b : 0);
+            int j = (int.TryParse(query.GetCountPriceByProduct(comboBox1.Text).Tables[0].Rows[0][0].ToString(), out a) ? a : 0);
+                //- (int.TryParse(query.GetCountProductOutDetail(comboBox1.Text).Tables[0].Rows[0][0].ToString(), out b) ? b : 0);
             label5.Text = j.ToString();
             label6.Text = query.GetCountPriceByProduct(comboBox1.Text).Tables[0].Rows[0][1].ToString();
         }
