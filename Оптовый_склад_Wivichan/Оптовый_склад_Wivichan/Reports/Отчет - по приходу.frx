@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/21/2019 13:55:31" ReportInfo.Modified="06/04/2019 22:30:06" ReportInfo.CreatorVersion="2019.3.2.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqSsA/cpJESUsm9JQOv4FahKPAlbHGZfpXQjABe6Jm8eu+vvdKzchNYDBZ5/IQK6MYtW5Yq6bJWdxqf10d8tnAMn8AkTfKEBadNYRon+6r5jnHEB8xz8q575AEdJ2FTpskc+4zFy3JYh1x9hK4n+BywNy8f3zBbSmMGQRYuA+4fo7y3YWYKmTlnrXw1Tzy3bwAgiJartxl76BoVwXuuGEpCowGfnFRpUDkY1pDnfhhgUo=">
+      <TableDataSource Name="Table2" DataType="System.Int32" Enabled="true" SelectCommand="SELECT &#13;&#10;                            a.id as 'Номер прихода' ,&#13;&#10;                            a.number_invoice AS 'Номер накладной',&#13;&#10;                            a.id_contract AS 'Номер контракта',&#13;&#10;                            ad.product AS 'Товар',&#13;&#10;                            ad.count AS 'Количество',&#13;&#10;                            ad.price AS 'Цена, руб',&#13;&#10;                            (ad.count * ad.price) AS 'Общий итог',&#13;&#10;                            s.name AS 'Поставщик',&#13;&#10;                            s.address AS 'Адрес поставщика',&#13;&#10;                            s.phone AS 'Телефон поставщика',&#13;&#10;                            s.inn AS 'ИНН'&#13;&#10;                            FROM Advent a&#13;&#10;                            INNER JOIN Contracts c ON c.id = a.id_contract&#13;&#10;                            LEFT JOIN Suppliers s ON s.id_contract = c.id&#13;&#10;                            INNER JOIN Advent_Detail ad ON ad.id_advent = a.id&#13;&#10;                            WHERE a.date = @date">
+        <Column Name="ИНН" DataType="System.String"/>
+        <Column Name="Номер прихода" DataType="System.Int32"/>
+        <Column Name="Номер накладной" DataType="System.Int32"/>
+        <Column Name="Номер контракта" DataType="System.Int32"/>
+        <Column Name="Товар" DataType="System.String"/>
+        <Column Name="Количество" DataType="System.Int32"/>
+        <Column Name="Цена, руб" DataType="System.Double"/>
+        <Column Name="Общий итог" DataType="System.Double"/>
+        <Column Name="Поставщик" DataType="System.String"/>
+        <Column Name="Адрес поставщика" DataType="System.String"/>
+        <Column Name="Телефон поставщика" DataType="System.String"/>
+        <CommandParameter Name="date" DataType="22" Expression="[date]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="date" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <RichObject Name="Rich1" Left="177.55" Top="4.45" Width="406.35" Height="28.35" Text="{\rtf1\ansi\ansicpg1251\deff0\nouicompat\deflang1049{\fonttbl{\f0\fnil\fcharset204 Arial;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.14393}\viewkind4\uc1 &#13;&#10;\pard\b\f0\fs32\'ce\'f2\'f7\'e5\'f2 \'ef\'ee \'ef\'f0\'e8\'f5\'ee\'e4\'f3 \'e7\'e0 [date]\f1\par&#13;&#10;}&#13;&#10;"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="37.8">
+      <TableObject Name="Table1" Left="9.45" Width="699.76" Height="37.8">
+        <TableColumn Name="Column1" Width="29.61"/>
+        <TableColumn Name="Column2" Width="57.96"/>
+        <TableColumn Name="Column3" Width="57.96"/>
+        <TableColumn Name="Column4" Width="57.96"/>
+        <TableColumn Name="Column5" Width="86.31"/>
+        <TableColumn Name="Column6" Width="67.41"/>
+        <TableColumn Name="Column7" Width="53.15"/>
+        <TableColumn Name="Column8" Width="62.6"/>
+        <TableColumn Name="Column9" Width="94.5"/>
+        <TableColumn Name="Column10" Width="75.6"/>
+        <TableColumn Name="Column11" Width="56.7"/>
+        <TableRow Name="Row1" Height="37.8">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Номер накладной" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell3" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Номер контракта" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Товар" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell5" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Количество" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell6" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Цена, руб" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell7" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Общий итог" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell8" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Поставщик" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell9" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Адрес поставщика" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell10" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Телефон" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell11" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="ИНН" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="75.6" CanGrow="true" DataSource="Table2" KeepTogether="true" KeepDetail="true">
+      <TableObject Name="Table3" Left="9.45" Width="699.76" Height="75.6">
+        <TableColumn Name="Column12" Width="29.61"/>
+        <TableColumn Name="Column13" Width="57.96"/>
+        <TableColumn Name="Column14" Width="57.96"/>
+        <TableColumn Name="Column15" Width="57.96"/>
+        <TableColumn Name="Column16" Width="86.31"/>
+        <TableColumn Name="Column17" Width="67.41"/>
+        <TableColumn Name="Column18" Width="53.15"/>
+        <TableColumn Name="Column19" Width="62.6"/>
+        <TableColumn Name="Column20" Width="94.5"/>
+        <TableColumn Name="Column21" Width="75.6"/>
+        <TableColumn Name="Column22" Width="56.7"/>
+        <TableRow Name="Row2" Height="75.6">
+          <TableCell Name="Cell12" Border.Lines="All" Border.Color="Silver" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell13" Border.Lines="All" Border.Color="Silver" Text="[Table2.Номер накладной]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell14" Border.Lines="All" Border.Color="Silver" Text="[Table2.Номер контракта]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell15" Border.Lines="All" Border.Color="Silver" Text="[Table2.Товар]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell16" Border.Lines="All" Border.Color="Silver" Text="[Table2.Количество]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell17" Border.Lines="All" Border.Color="Silver" Text="[Table2.Цена, руб]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell18" Border.Lines="All" Border.Color="Silver" Text="[Table2.Общий итог]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell19" Border.Lines="All" Border.Color="Silver" Text="[Table2.Поставщик]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell20" Border.Lines="All" Border.Color="Silver" Text="[Table2.Адрес поставщика]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell21" Border.Lines="All" Border.Color="Silver" Text="[Table2.Телефон поставщика]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+          <TableCell Name="Cell22" Border.Lines="All" Border.Color="Silver" Text="[Table2.ИНН]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="163.2" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>
