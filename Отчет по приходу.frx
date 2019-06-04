@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/04/2019 11:33:33" ReportInfo.Modified="06/04/2019 11:42:34" ReportInfo.CreatorVersion="2019.3.2.0">
+  <ScriptText>sing System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="47.25">
+      <RichObject Name="Rich1" Left="179.55" Top="9.45" Width="359.1" Height="37.8" Text="{\rtf1\ansi\ansicpg1251\deff0\nouicompat\deflang1049{\fonttbl{\f0\fnil\fcharset204 Arial;}{\f1\fnil\fcharset0 Arial;}{\f2\fnil\fcharset204 Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.17134}\viewkind4\uc1 &#13;&#10;\pard\qc\f0\fs36\'ce\'f2\'f7\'e5\'f2 \'ef\'ee \'ef\'f0\'e8\'f5\'ee\'e4\'f3 \'ed\'e0: \b\f1\lang1033 @date\b0\par&#13;&#10;\f2\lang1049\par&#13;&#10;}&#13;&#10;"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="93.05" Width="718.2" Height="28.35">
+      <TableObject Name="Table2" Left="9.45" Width="699.76" Height="28.35">
+        <TableColumn Name="Column9" Width="39.06"/>
+        <TableColumn Name="Column10" Width="143.01"/>
+        <TableColumn Name="Column11" Width="67.41"/>
+        <TableColumn Name="Column12" Width="76.86"/>
+        <TableColumn Name="Column13" Width="105.21"/>
+        <TableColumn Name="Column14" Width="95.76"/>
+        <TableColumn Name="Column15" Width="90.95"/>
+        <TableColumn Name="Column16" Width="81.5"/>
+        <TableRow Name="Row2" Height="28.35">
+          <TableCell Name="Cell9" Border.Lines="All" Border.Color="Silver" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell10" Border.Lines="All" Border.Color="Silver" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell11" Border.Lines="All" Border.Color="Silver" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell12" Border.Lines="All" Border.Color="Silver" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell13" Border.Lines="All" Border.Color="Silver" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell14" Border.Lines="All" Border.Color="Silver" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell15" Border.Lines="All" Border.Color="Silver" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell16" Border.Lines="All" Border.Color="Silver" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+      <DataHeaderBand Name="DataHeader1" Top="51.25" Width="718.2" Height="37.8">
+        <TableObject Name="Table1" Left="9.45" Width="699.76" Height="37.8">
+          <TableColumn Name="Column1" Width="39.06"/>
+          <TableColumn Name="Column2" Width="143.01"/>
+          <TableColumn Name="Column3" Width="67.41"/>
+          <TableColumn Name="Column4" Width="76.86"/>
+          <TableColumn Name="Column5" Width="105.21"/>
+          <TableColumn Name="Column6" Width="95.76"/>
+          <TableColumn Name="Column7" Width="90.95"/>
+          <TableColumn Name="Column8" Width="81.5"/>
+          <TableRow Name="Row1" Height="37.8">
+            <TableCell Name="Cell1" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell2" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Товар" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell3" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Количество" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell4" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Номер заказа" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell5" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Номер накладной" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell6" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Поставщик" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell7" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Адрес" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+            <TableCell Name="Cell8" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="ИНН" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          </TableRow>
+        </TableObject>
+      </DataHeaderBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="125.4" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>
