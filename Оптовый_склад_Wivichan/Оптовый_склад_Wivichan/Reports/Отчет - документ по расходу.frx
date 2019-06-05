@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/04/2019 22:54:24" ReportInfo.Modified="06/04/2019 23:09:31" ReportInfo.CreatorVersion="2019.3.2.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqSsA/cpJESUsm9JQOv4FahKPAlbHGZfpXQjABe6Jm8eu+vvdKzchNYDBZ5/IQK6MYtW5Yq6bJWdxqf10d8tnAMn8AkTfKEBadNYRon+6r5jnHEB8xz8q575AEdJ2FTpskc+4zFy3JYh1x9hK4n+BywNy8f3zBbSmMGQRYuA+4fo7y3YWYKmTlnrXw1Tzy3bwAgiJartxl76BoVwXuuGEpCrBto/qqcSyY78YtwUMhr4w=">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT &#13;&#10;od.product AS 'Товар',&#13;&#10;u.name AS 'Ед. измерения',&#13;&#10;od.count AS 'Количество',&#13;&#10;od.price AS 'Цена',&#13;&#10;(od.count * od.price) AS 'Общий итог'&#13;&#10;FROM Out_Detail od&#13;&#10;INNER JOIN Units u ON u.id = od.id_unit&#13;&#10;INNER JOIN Out o ON o.id = od.id_out&#13;&#10;WHERE o.number_invoice = @invoice">
+        <Column Name="Товар" DataType="System.String"/>
+        <Column Name="Ед. измерения" DataType="System.String"/>
+        <Column Name="Количество" DataType="System.Int32"/>
+        <Column Name="Цена" DataType="System.Double"/>
+        <Column Name="Общий итог" DataType="System.Double"/>
+        <CommandParameter Name="invoice" DataType="22" Expression="[invoice]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="date" DataType="System.String"/>
+    <Parameter Name="invoice" DataType="System.String"/>
+    <Parameter Name="contract" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6">
+      <RichObject Name="Rich1" Left="75.6" Top="9.45" Width="529.2" Height="66.15" Text="{\rtf1\ansi\ansicpg1251\deff0\nouicompat\deflang1049{\fonttbl{\f0\fnil\fcharset204 Arial;}{\f1\fnil\fcharset1 Segoe UI Symbol;}{\f2\fnil\fcharset204 Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.14393}\viewkind4\uc1 &#13;&#10;\pard\qc\f0\fs28\'d0\'e0\'f1\'f5\'ee\'e4\'ed\'fb\'e9 \'e4\'ee\'ea\'f3\'ec\'e5\'ed\'f2 \f1\u8470?\f0  \b [invoice] \b0\'e7\'e0 \b [date] \b0\par&#13;&#10;\'ef\'ee \'e7\'e0\'ea\'e0\'e7\'f3 \f1\u8470?\f0  \b [contract]\f2\fs17\par&#13;&#10;}&#13;&#10;"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="79.6" Width="718.2" Height="37.8">
+      <TableObject Name="Table1" Left="75.6" Width="538.98" Height="37.8">
+        <TableColumn Name="Column1" Width="48.88"/>
+        <TableColumn Name="Column2" Width="115.03"/>
+        <TableColumn Name="Column3" Width="105.58"/>
+        <TableColumn Name="Column4" Width="96.13"/>
+        <TableColumn Name="Column5" Width="86.68"/>
+        <TableColumn Name="Column6" Width="86.68"/>
+        <TableRow Name="Row1" Height="37.8">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Товар" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell3" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Ед. измерения" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Количество" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell5" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Цена" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell6" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Общий итог" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="121.4" Width="718.2" Height="37.8" DataSource="Table">
+      <TableObject Name="Table1" Left="75.6" Width="538.98" Height="37.8">
+        <TableColumn Name="Column7" Width="48.88"/>
+        <TableColumn Name="Column8" Width="115.03"/>
+        <TableColumn Name="Column9" Width="105.58"/>
+        <TableColumn Name="Column10" Width="96.13"/>
+        <TableColumn Name="Column11" Width="86.68"/>
+        <TableColumn Name="Column12" Width="86.68"/>
+        <TableRow Name="Row2" Height="37.8">
+          <TableCell Name="Cell7" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell8" Text="[Table.Товар]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell9" Text="[Table.Ед. измерения]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell10" Text="[Table.Количество]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell11" Text="[Table.Цена]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell12" Text="[Table.Общий итог]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="163.2" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

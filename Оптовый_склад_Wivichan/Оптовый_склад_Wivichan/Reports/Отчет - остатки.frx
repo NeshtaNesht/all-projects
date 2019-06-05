@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="05/21/2019 13:55:31" ReportInfo.Modified="06/04/2019 22:53:22" ReportInfo.CreatorVersion="2019.3.2.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqSsA/cpJESUsm9JQOv4FahKPAlbHGZfpXQjABe6Jm8eu+vvdKzchNYDBZ5/IQK6MYtW5Yq6bJWdxqf10d8tnAMn8AkTfKEBadNYRon+6r5jnHEB8xz8q575AEdJ2FTpskc+4zFy3JYh1x9hK4n+BywNy8f3zBbSmMGQRYuA+4fo7y3YWYKmTlnrXw1Tzy3bwAgiJartxl76BoVwXuuGEpCs0puCePnpUJ/Zi5axNv6hU=">
+      <TableDataSource Name="Table2" DataType="System.Int32" Enabled="true" SelectCommand="SELECT r.product AS 'Товар', r.count AS 'Количество' FROM Rest r WHERE r.count &gt; 0">
+        <Column Name="Товар" DataType="System.String"/>
+        <Column Name="Количество" DataType="System.Int32"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <RichObject Name="Rich1" Left="130.3" Top="4.45" Width="472.5" Height="28.35" Text="{\rtf1\ansi\ansicpg1251\deff0\nouicompat\deflang1049{\fonttbl{\f0\fnil\fcharset204 Arial;}{\f1\fnil\fcharset204 Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.14393}\viewkind4\uc1 &#13;&#10;\pard\b\f0\fs32\'d2\'e5\'ea\'f3\'f9\'e8\'e5 \'ee\'f1\'f2\'e0\'f2\'ea\'e8 \'ed\'e0 \'f1\'ea\'eb\'e0\'e4\'e5 \'ed\'e0 [Date]\f1\par&#13;&#10;}&#13;&#10;"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="37.8">
+      <TableObject Name="Table1" Left="160.65" Width="410.13" Height="37.8">
+        <TableColumn Name="Column1" Width="64.26"/>
+        <TableColumn Name="Column2" Width="224.91"/>
+        <TableColumn Name="Column3" Width="120.96"/>
+        <TableRow Name="Row1" Height="37.8">
+          <TableCell Name="Cell1" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="№ п/п" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell2" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Товар" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell3" Border.Lines="All" Border.Color="Silver" Fill.Color="Gainsboro" Text="Количество" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="38.8" DataSource="Table2" KeepTogether="true" KeepDetail="true">
+      <TableObject Name="Table3" Left="160.65" Width="410.13" Height="37.8">
+        <TableColumn Name="Column4" Width="64.26"/>
+        <TableColumn Name="Column5" Width="224.91"/>
+        <TableColumn Name="Column6" Width="120.96"/>
+        <TableRow Name="Row2" Height="37.8">
+          <TableCell Name="Cell4" Border.Lines="All" Border.Color="Silver" Text="[Row#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell5" Border.Lines="All" Border.Color="Silver" Text="[Table2.Товар]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TableCell Name="Cell6" Border.Lines="All" Border.Color="Silver" Text="[Table2.Количество]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="126.4" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>
