@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="CalculateCalories.AuthControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CalculateCalories"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel 
+            Grid.Column="0" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center">
+            <Label
+                Name="labelLogin"
+                Content="Введите ФИО"
+                HorizontalAlignment="Center"
+                />
+            <TextBox
+                VerticalAlignment="Center"
+                Name="textLogin"
+                Margin="0,0,0,15"
+                MinWidth="150"
+                />
+            <StackPanel 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center">
+
+                <Button
+                    Content="Далее"
+                    Name="btnLogin"
+                    MinWidth="90"
+                    Margin="0,0,20,0" Click="BtnLogin_Click"
+                />
+                <Button 
+                    Content="Выход"
+                    Name="btnExit"
+                    MinWidth="50"
+                />
+            </StackPanel>
+        </StackPanel>
+        <!-- Рисуем меню -->
+        <Menu VerticalAlignment="Top">
+            <MenuItem
+                Header="Файл"
+                >
+                <MenuItem 
+                    Header="Открыть"
+                    Name="menuOpen"
+                    />
+                <MenuItem 
+                    Header="Выход"
+                    Name="menuExit"
+                    />
+            </MenuItem>
+            <MenuItem
+                Header="Справка"
+                >
+                <MenuItem
+                    Header="О программе"
+                    Name="menuAboutProgram"
+                    />
+                <MenuItem 
+                    Header="О разработчиках"
+                    Name="menuAboutDevelop"
+                    />
+            </MenuItem>
+        </Menu>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="CalculateCalories.Controls.CalculateControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Заголовок -->
+        <StackPanel Grid.Row="0">
+            <!-- Рисуем меню -->
+            <Menu VerticalAlignment="Top">
+                <MenuItem
+                Header="Файл"
+                >
+                    <MenuItem 
+                    Header="Открыть"
+                    Name="menuOpen"
+                    />
+                    <MenuItem 
+                    Header="Выход"
+                    Name="menuExit"
+                    />
+                </MenuItem>
+                <MenuItem
+                Header="Справка"
+                >
+                    <MenuItem
+                    Header="О программе"
+                    Name="menuAboutProgram"
+                    />
+                    <MenuItem 
+                    Header="О разработчиках"
+                    Name="menuAboutDevelop"
+                    />
+                </MenuItem>
+            </Menu>
+            <Label
+                Content="Калькулятор калорий, новый расчёт"
+                HorizontalAlignment="Center"
+                FontSize="14"
+                />
+        </StackPanel>
+        <!-- Возраст -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label
+                Content="Возраст:"
+                VerticalAlignment="Center"
+                />
+            <TextBox
+                MinWidth="200"
+                Name="textAge"
+                VerticalContentAlignment="Center"
+                />
+        </StackPanel>
+        <!-- Пол -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label
+                Content="Пол:"           
+                />
+            <RadioButton 
+                Content="Мужской" 
+                VerticalAlignment="Center"
+                Name="radioMale"
+                />
+            <RadioButton 
+                Content="Женский"
+                VerticalAlignment="Center"
+                Name="radioFemale"
+                />
+        </StackPanel>
+        <!-- Вес -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label
+                Content="Вес, кг:"
+                />
+            <TextBox 
+                MinWidth="100"
+                Name="textWeight"
+                VerticalContentAlignment="Center"
+                />
+        </StackPanel>
+        <!-- Рост -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label
+                Content="Рост, см:"
+                />
+            <TextBox 
+                MinWidth="100"
+                Name="textStature"
+                VerticalContentAlignment="Center"
+                />
+        </StackPanel>
+        <!-- Активность -->
+        <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label
+                Content="Активность:" 
+                />
+            <ComboBox
+                MinWidth="250"
+                >
+                <ComboBoxItem Content="Минимум/отсутствие физической нагрузки"/>
+                <ComboBoxItem Content="Основной обмен"/>
+                <ComboBoxItem Content="3 раза в неделю"/>
+                <ComboBoxItem Content="5 раз в неделю"/>
+                <ComboBoxItem Content="5 раз в неделю (интенсивно)"/>
+                <ComboBoxItem Content="Каждый день"/>
+                <ComboBoxItem Content="Каждый день интенсивно или 2 раза в день"/>
+                <ComboBoxItem Content="Ежедневная физическая нагрузка + физическая работа"/>                
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button 
+                Name="btnCalculate"
+                Content="Рассчитать"
+                MinWidth="150"
+                />
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
