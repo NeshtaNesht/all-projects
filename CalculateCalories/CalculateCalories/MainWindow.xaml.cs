@@ -22,8 +22,7 @@ namespace CalculateCalories
     {
         public MainWindow()
         {
-            InitializeComponent();
-            this.Content = new AuthControl(this);
+            InitializeComponent();                  
         }
     }
 }

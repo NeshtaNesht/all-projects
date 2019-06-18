@@ -20,18 +20,9 @@ namespace CalculateCalories
     /// </summary>
     public partial class AuthControl : UserControl
     {
-        public static string Fio;
-        Window parentWindow;
-        public AuthControl(Window _parentWindow)
+        public AuthControl()
         {
             InitializeComponent();
-            parentWindow = _parentWindow;
-        }
-
-        private void BtnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            Fio = textLogin.Text;
-            parentWindow.Content = new CalculateCalories.Controls.CalculateControl();
         }
     }
 }

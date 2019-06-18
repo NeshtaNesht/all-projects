@@ -4,10 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculateCalories"
+        xmlns:vm="clr-namespace:CalculateCalories.ViewModels"
+        xmlns:view="clr-namespace:CalculateCalories.Controls"
         mc:Ignorable="d"
         Title="Расчет каллорий" Height="350" Width="525" WindowStartupLocation="CenterScreen"
         >
-    <Grid>
-                   
-    </Grid>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:AuthViewModel}">
+            <local:AuthControl />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CalculateViewModel}">
+            <view:CalculateControl />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CaloriesViewModel}">
+            <view:CaloriesControl/>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:RootViewModel />
+    </Window.DataContext>
+    <ContentControl Content="{Binding CurrentContentVM}"/>
 </Window>
