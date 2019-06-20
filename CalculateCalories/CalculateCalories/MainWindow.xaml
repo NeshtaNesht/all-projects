@@ -1,15 +1,16 @@
-﻿<Window x:Class="CalculateCalories.MainWindow"
+﻿<Controls:MetroWindow x:Class="CalculateCalories.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculateCalories"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:vm="clr-namespace:CalculateCalories.ViewModels"
         xmlns:view="clr-namespace:CalculateCalories.Controls"
         mc:Ignorable="d"
         Title="Расчет каллорий" Height="350" Width="525" WindowStartupLocation="CenterScreen"
         >
-    <Window.Resources>
+    <Controls:MetroWindow.Resources>
         <DataTemplate DataType="{x:Type vm:AuthViewModel}">
             <local:AuthControl />
         </DataTemplate>
@@ -19,9 +20,12 @@
         <DataTemplate DataType="{x:Type vm:CaloriesViewModel}">
             <view:CaloriesControl/>
         </DataTemplate>
-    </Window.Resources>
-    <Window.DataContext>
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.DataContext>
         <vm:RootViewModel />
-    </Window.DataContext>
-    <ContentControl Content="{Binding CurrentContentVM}"/>
-</Window>
+    </Controls:MetroWindow.DataContext>
+    <Grid>
+        <Controls:TransitioningContentControl 
+            Content="{Binding CurrentContentVM}"/>
+    </Grid>    
+</Controls:MetroWindow>

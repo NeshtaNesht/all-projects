@@ -5,18 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+using MahApps.Metro.Controls.Dialogs;
+using static MahApps.Metro.Controls.Dialogs.DialogCoordinator;
 
 namespace CalculateCalories.ViewModels
 {
     class RootViewModel : ViewModelBase
     {
+        public static RootViewModel root;
         public RootViewModel()
         {
             CurrentContentVM = new AuthViewModel();
-        }
+            root = this;
+            DialogCoordinator = Instance;
+        }        
 
-        private object currentContentVM;
-        public object CurrentContentVM
+        private ViewModelBase currentContentVM;
+        public ViewModelBase CurrentContentVM
         {
             get
             {
@@ -28,5 +33,6 @@ namespace CalculateCalories.ViewModels
                 RaisePropertyChanged(() => CurrentContentVM);
             }
         }
+        public static IDialogCoordinator DialogCoordinator { get; set; }
     }
 }

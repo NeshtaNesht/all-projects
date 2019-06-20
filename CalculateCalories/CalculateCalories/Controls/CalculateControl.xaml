@@ -3,12 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             
+             xmlns:converters="clr-namespace:CalculateCalories.Converters" 
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             Dialog:DialogParticipation.Register="{Binding}"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="525">
+    <UserControl.Resources>
+        <converters:GenderConverter x:Key="genderConverterKey" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -61,6 +66,7 @@
                 MinWidth="200"
                 Name="textAge"
                 VerticalContentAlignment="Center"
+                Text="{Binding Age}"
                 />
         </StackPanel>
         <!-- Пол -->
@@ -72,11 +78,13 @@
                 Content="Мужской" 
                 VerticalAlignment="Center"
                 Name="radioMale"
+                IsChecked="{Binding Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Мужской}"                
                 />
             <RadioButton 
                 Content="Женский"
                 VerticalAlignment="Center"
                 Name="radioFemale"
+                IsChecked="{Binding Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Женский}"
                 />
         </StackPanel>
         <!-- Вес -->
@@ -88,6 +96,7 @@
                 MinWidth="100"
                 Name="textWeight"
                 VerticalContentAlignment="Center"
+                Text="{Binding Weight}"
                 />
         </StackPanel>
         <!-- Рост -->
@@ -99,6 +108,7 @@
                 MinWidth="100"
                 Name="textStature"
                 VerticalContentAlignment="Center"
+                Text="{Binding Stature}"
                 />
         </StackPanel>
         <!-- Активность -->
@@ -108,22 +118,16 @@
                 />
             <ComboBox
                 MinWidth="250"
-                >
-                <ComboBoxItem Content="Минимум/отсутствие физической нагрузки"/>
-                <ComboBoxItem Content="Основной обмен"/>
-                <ComboBoxItem Content="3 раза в неделю"/>
-                <ComboBoxItem Content="5 раз в неделю"/>
-                <ComboBoxItem Content="5 раз в неделю (интенсивно)"/>
-                <ComboBoxItem Content="Каждый день"/>
-                <ComboBoxItem Content="Каждый день интенсивно или 2 раза в день"/>
-                <ComboBoxItem Content="Ежедневная физическая нагрузка + физическая работа"/>                
-            </ComboBox>
+                ItemsSource="{Binding Activity}"
+                SelectedItem="{Binding SelectedActivity}"
+                />
         </StackPanel>
         <StackPanel Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button 
                 Name="btnCalculate"
                 Content="Рассчитать"
                 MinWidth="150"
+                Command="{Binding CommandCalculate}"
                 />
         </StackPanel>
         

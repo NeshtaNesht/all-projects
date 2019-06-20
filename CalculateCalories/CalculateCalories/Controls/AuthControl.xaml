@@ -6,6 +6,8 @@
     xmlns:local="clr-namespace:CalculateCalories"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CalculateCalories.ViewModels"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    Dialog:DialogParticipation.Register="{Binding}"
     d:DesignHeight="350"
     d:DesignWidth="525"
     mc:Ignorable="d">

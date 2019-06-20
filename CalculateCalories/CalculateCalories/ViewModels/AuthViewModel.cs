@@ -7,11 +7,16 @@ using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace CalculateCalories.ViewModels
 {
     public class AuthViewModel : ViewModelBase
-    {
+    {        
+        public AuthViewModel()
+        {
+            
+        }
         private string _fieldFio;
         public string FieldFio
         {
@@ -25,18 +30,15 @@ namespace CalculateCalories.ViewModels
                 RaisePropertyChanged(() => FieldFio);
             }
         }
-
-        public ICommand CommandLogin
+        public ICommand CommandLogin //Это команда на кнопке
         {
             get
             {
-                return _commandLogin ?? (_commandLogin = new RelayCommand(() => {
-                    if (!string.IsNullOrEmpty(FieldFio))
-                    {
-                        MessageBox.Show("Добро пожаловать, " + FieldFio);
-                    }
+                return _commandLogin ?? (_commandLogin = new RelayCommand(async () => {
+                    if (!string.IsNullOrEmpty(FieldFio) && FieldFio.Equals("Admin"))
+                        RootViewModel.root.CurrentContentVM = new CalculateViewModel();
                     else
-                        MessageBox.Show("Вы не ввели ФИО");
+                        await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Внимание", "Входная строка имела неверный формат");
                 }));
             }
         }
@@ -49,7 +51,6 @@ namespace CalculateCalories.ViewModels
                 }));
             }
         }
-
         private ICommand _commandLogin;
         private ICommand _commandExit;
 
