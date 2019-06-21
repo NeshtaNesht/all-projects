@@ -40,12 +40,13 @@ namespace CalculateCalories.ViewModels
         {
             get
             {
-                return _commandCalculate ?? (_commandCalculate = new RelayCommand(async() => {
-                    await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Ваши данные", "Ваш возраст: " + Age + 
-                                                                                                "\nВаш пол: " + Gender + 
-                                                                                                "\nВаш вес: " + Weight + " кг." +
-                                                                                                "\nВаш рост: " + Stature + " см." +
-                                                                                                "\nВаша активность: " + SelectedActivity);
+                return _commandCalculate ?? (_commandCalculate = new RelayCommand(() => {
+                    //await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Ваши данные", "Ваш возраст: " + Age + 
+                    //                                                                            "\nВаш пол: " + Gender + 
+                    //                                                                            "\nВаш вес: " + Weight + " кг." +
+                    //                                                                            "\nВаш рост: " + Stature + " см." +
+                    //                                                                            "\nВаша активность: " + SelectedActivity);
+
                 }));
             }
         }

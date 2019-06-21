@@ -4,12 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converters="clr-namespace:CalculateCalories.Converters" 
+             xmlns:validator="clr-namespace:CalculateCalories.Validators" 
              xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
              Dialog:DialogParticipation.Register="{Binding}"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="525">
     <UserControl.Resources>
         <converters:GenderConverter x:Key="genderConverterKey" />
+        <validator:GlobalValidator x:Key="validatorValue" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -65,9 +67,16 @@
             <TextBox
                 MinWidth="200"
                 Name="textAge"
-                VerticalContentAlignment="Center"
-                Text="{Binding Age}"
-                />
+                VerticalContentAlignment="Center"                                
+                >
+                <TextBox.Text>
+                    <Binding Path="Age">
+                        <Binding.ValidationRules>
+                            <validator:GlobalValidator />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
         <!-- Пол -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
@@ -95,9 +104,16 @@
             <TextBox 
                 MinWidth="100"
                 Name="textWeight"
-                VerticalContentAlignment="Center"
-                Text="{Binding Weight}"
-                />
+                VerticalContentAlignment="Center"                
+                >
+                <TextBox.Text>
+                    <Binding Path="Weight">
+                        <Binding.ValidationRules>
+                            <validator:GlobalValidator />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
         <!-- Рост -->
         <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
@@ -108,8 +124,15 @@
                 MinWidth="100"
                 Name="textStature"
                 VerticalContentAlignment="Center"
-                Text="{Binding Stature}"
-                />
+                >
+                <TextBox.Text>
+                    <Binding Path="Stature">
+                        <Binding.ValidationRules>
+                            <validator:GlobalValidator />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
         <!-- Активность -->
         <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center">
