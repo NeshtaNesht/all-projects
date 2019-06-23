@@ -1,74 +1,58 @@
-﻿<UserControl x:Class="CalculateCalories.Controls.CalculateControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:converters="clr-namespace:CalculateCalories.Converters" 
-             xmlns:validator="clr-namespace:CalculateCalories.Validators" 
-             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             Dialog:DialogParticipation.Register="{Binding}"
-             mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="525">
+﻿<UserControl
+    x:Class="CalculateCalories.Controls.CalculateControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:converters="clr-namespace:CalculateCalories.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:validator="clr-namespace:CalculateCalories.Validators"
+    Dialog:DialogParticipation.Register="{Binding}"
+    d:DesignHeight="350"
+    d:DesignWidth="525"
+    mc:Ignorable="d">
     <UserControl.Resources>
         <converters:GenderConverter x:Key="genderConverterKey" />
         <validator:GlobalValidator x:Key="validatorValue" />
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*" />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!-- Заголовок -->
+        <!--  Заголовок  -->
         <StackPanel Grid.Row="0">
-            <!-- Рисуем меню -->
+            <!--  Рисуем меню  -->
             <Menu VerticalAlignment="Top">
-                <MenuItem
-                Header="Файл"
-                >
-                    <MenuItem 
-                    Header="Открыть"
-                    Name="menuOpen"
-                    />
-                    <MenuItem 
-                    Header="Выход"
-                    Name="menuExit"
-                    />
+                <MenuItem Header="Файл">
+                    <MenuItem Name="menuOpen" Header="Открыть" />
+                    <MenuItem Name="menuExit" Header="Выход" />
                 </MenuItem>
-                <MenuItem
-                Header="Справка"
-                >
-                    <MenuItem
-                    Header="О программе"
-                    Name="menuAboutProgram"
-                    />
-                    <MenuItem 
-                    Header="О разработчиках"
-                    Name="menuAboutDevelop"
-                    />
+                <MenuItem Header="Справка">
+                    <MenuItem Name="menuAboutProgram" Header="О программе" />
+                    <MenuItem Name="menuAboutDevelop" Header="О разработчиках" />
                 </MenuItem>
             </Menu>
             <Label
-                Content="Калькулятор калорий, новый расчёт"
                 HorizontalAlignment="Center"
-                FontSize="14"
-                />
+                Content="Калькулятор калорий, новый расчёт"
+                FontSize="14" />
         </StackPanel>
-        <!-- Возраст -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label
-                Content="Возраст:"
-                VerticalAlignment="Center"
-                />
+        <!--  Возраст  -->
+        <StackPanel
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label VerticalAlignment="Center" Content="Возраст:" />
             <TextBox
-                MinWidth="200"
                 Name="textAge"
-                VerticalContentAlignment="Center"                                
-                >
+                MinWidth="200"
+                VerticalContentAlignment="Center">
                 <TextBox.Text>
                     <Binding Path="Person.Age">
                         <Binding.ValidationRules>
@@ -78,34 +62,33 @@
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
-        <!-- Пол -->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label
-                Content="Пол:"           
-                />
-            <RadioButton 
-                Content="Мужской" 
-                VerticalAlignment="Center"
+        <!--  Пол  -->
+        <StackPanel
+            Grid.Row="2"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label Content="Пол:" />
+            <RadioButton
                 Name="radioMale"
-                IsChecked="{Binding Person.Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Мужской}"                
-                />
-            <RadioButton 
-                Content="Женский"
                 VerticalAlignment="Center"
+                Content="Мужской"
+                IsChecked="{Binding Person.Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Мужской}" />
+            <RadioButton
                 Name="radioFemale"
-                IsChecked="{Binding Person.Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Женский}"
-                />
+                VerticalAlignment="Center"
+                Content="Женский"
+                IsChecked="{Binding Person.Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Женский}" />
         </StackPanel>
-        <!-- Вес -->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label
-                Content="Вес, кг:"
-                />
-            <TextBox 
-                MinWidth="100"
+        <!--  Вес  -->
+        <StackPanel
+            Grid.Row="3"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label Content="Вес, кг:" />
+            <TextBox
                 Name="textWeight"
-                VerticalContentAlignment="Center"                
-                >
+                MinWidth="100"
+                VerticalContentAlignment="Center">
                 <TextBox.Text>
                     <Binding Path="Person.Weight">
                         <Binding.ValidationRules>
@@ -115,16 +98,16 @@
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
-        <!-- Рост -->
-        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label
-                Content="Рост, см:"
-                />
-            <TextBox 
-                MinWidth="100"
+        <!--  Рост  -->
+        <StackPanel
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label Content="Рост, см:" />
+            <TextBox
                 Name="textStature"
-                VerticalContentAlignment="Center"
-                >
+                MinWidth="100"
+                VerticalContentAlignment="Center">
                 <TextBox.Text>
                     <Binding Path="Person.Stature">
                         <Binding.ValidationRules>
@@ -134,25 +117,27 @@
                 </TextBox.Text>
             </TextBox>
         </StackPanel>
-        <!-- Активность -->
-        <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label
-                Content="Активность:" 
-                />
+        <!--  Активность  -->
+        <StackPanel
+            Grid.Row="5"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Label Content="Активность:" />
             <ComboBox
                 MinWidth="250"
-                ItemsSource="{Binding List_Activity}"
-                SelectedItem="{Binding Person.Activity}"
-                />
+                ItemsSource="{Binding Person.List_Activity}"
+                SelectedItem="{Binding Person.Activity}" />
         </StackPanel>
-        <StackPanel Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button 
+        <StackPanel
+            Grid.Row="6"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button
                 Name="btnCalculate"
-                Content="Рассчитать"
                 MinWidth="150"
                 Command="{Binding CommandCalculate}"
-                />
+                Content="Рассчитать" />
         </StackPanel>
-        
+
     </Grid>
 </UserControl>

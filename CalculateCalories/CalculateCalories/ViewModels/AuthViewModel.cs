@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using CalculateCalories.Classes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using MahApps.Metro.Controls.Dialogs;
@@ -37,7 +38,11 @@ namespace CalculateCalories.ViewModels
                 return _commandLogin ?? (_commandLogin = new RelayCommand(async () => {
                     if (!string.IsNullOrEmpty(FieldFio) && FieldFio.Equals("Admin"))
                     {
-                        RootViewModel.root.CurrentContentVM = new CalculateViewModel(_fieldFio);
+                        Person person = new Person
+                        {
+                            FIO = _fieldFio
+                        };
+                        RootViewModel.root.CurrentContentVM = new CalculateViewModel(person);
                     }
                     else
                         await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Внимание", "Входная строка имела неверный формат");

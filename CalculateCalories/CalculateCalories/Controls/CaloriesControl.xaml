@@ -75,7 +75,8 @@
                     TextAlignment="Center"
                     HorizontalAlignment="Center"
                     FontWeight="Bold"
-                    FontSize="14"                    
+                    FontSize="14"  
+                    Text="{Binding NeedCaloriesOne}"
                     />
                 </StackPanel>
                 <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
@@ -92,6 +93,7 @@
                     HorizontalAlignment="Center"
                     FontWeight="Bold"
                     FontSize="14"
+                    Text="{Binding NeedCaloriesTwo}"
                     />
                 </StackPanel>
                 <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Vertical">
@@ -108,6 +110,7 @@
                     HorizontalAlignment="Center"
                     FontWeight="Bold"
                     FontSize="14"
+                    Text="{Binding NeedCaloriesThree}"
                     />
                 </StackPanel>
             </Grid>
