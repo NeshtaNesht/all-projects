@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CalculateCalories.Classes
 {
-    abstract class Person
+    public class Person
     {
-        private readonly Person _person;
+        //private readonly Person _person;
         public string FIO { get; set; }
-        public int Age { get; set; }
+        public int? Age { get; set; }
         public string Gender { get; set; }
-        public double Weight { get; set; }
-        public int Strature { get; set; }
+        public double? Weight { get; set; }
+        public int? Stature { get; set; }
         public string Activity { get; set; }
 
         public Person()

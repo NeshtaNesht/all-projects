@@ -70,7 +70,7 @@
                 VerticalContentAlignment="Center"                                
                 >
                 <TextBox.Text>
-                    <Binding Path="Age">
+                    <Binding Path="Person.Age">
                         <Binding.ValidationRules>
                             <validator:GlobalValidator />
                         </Binding.ValidationRules>
@@ -87,13 +87,13 @@
                 Content="Мужской" 
                 VerticalAlignment="Center"
                 Name="radioMale"
-                IsChecked="{Binding Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Мужской}"                
+                IsChecked="{Binding Person.Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Мужской}"                
                 />
             <RadioButton 
                 Content="Женский"
                 VerticalAlignment="Center"
                 Name="radioFemale"
-                IsChecked="{Binding Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Женский}"
+                IsChecked="{Binding Person.Gender, Converter={StaticResource genderConverterKey}, ConverterParameter=Женский}"
                 />
         </StackPanel>
         <!-- Вес -->
@@ -107,7 +107,7 @@
                 VerticalContentAlignment="Center"                
                 >
                 <TextBox.Text>
-                    <Binding Path="Weight">
+                    <Binding Path="Person.Weight">
                         <Binding.ValidationRules>
                             <validator:GlobalValidator />
                         </Binding.ValidationRules>
@@ -126,7 +126,7 @@
                 VerticalContentAlignment="Center"
                 >
                 <TextBox.Text>
-                    <Binding Path="Stature">
+                    <Binding Path="Person.Stature">
                         <Binding.ValidationRules>
                             <validator:GlobalValidator />
                         </Binding.ValidationRules>
@@ -141,8 +141,8 @@
                 />
             <ComboBox
                 MinWidth="250"
-                ItemsSource="{Binding Activity}"
-                SelectedItem="{Binding SelectedActivity}"
+                ItemsSource="{Binding List_Activity}"
+                SelectedItem="{Binding Person.Activity}"
                 />
         </StackPanel>
         <StackPanel Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center">

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using CalculateCalories.Classes;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using MahApps.Metro.Controls.Dialogs;
@@ -14,17 +15,22 @@ namespace CalculateCalories.ViewModels
 {
     class CalculateViewModel : ViewModelBase
     {
-        private int? _age;
-        private string _gender;
-        private double? _weight;
-        private int? _stature;
-        private ObservableCollection<string> _activity;
+        //private int? _age;
+        //private string _gender;
+        //private double? _weight;
+        //private int? _stature;
+        private Person _person;
+        private ObservableCollection<string> _list_activity;
         private string _selectedActivity;
         private ICommand _commandCalculate;
-        public CalculateViewModel()
+        public CalculateViewModel(string _fio)
         {
+            Person = new Person
+            {
+                FIO = _fio
+            };
             //Создаем коллекцию активности
-            Activity = new ObservableCollection<string>
+            List_Activity = new ObservableCollection<string>
             {
                 "Минимум/отсутствие физической нагрузки",
                 "Основной обмен",
@@ -40,74 +46,88 @@ namespace CalculateCalories.ViewModels
         {
             get
             {
-                return _commandCalculate ?? (_commandCalculate = new RelayCommand(() => {
-                    //await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Ваши данные", "Ваш возраст: " + Age + 
-                    //                                                                            "\nВаш пол: " + Gender + 
-                    //                                                                            "\nВаш вес: " + Weight + " кг." +
-                    //                                                                            "\nВаш рост: " + Stature + " см." +
-                    //                                                                            "\nВаша активность: " + SelectedActivity);
+                return _commandCalculate ?? (_commandCalculate = new RelayCommand(async () => {
+                    await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Ваши данные", "Ваш возраст: " + Person.Age +
+                                                                                                "\nВаш пол: " + Person.Gender +
+                                                                                                "\nВаш вес: " + Person.Weight + " кг." +
+                                                                                                "\nВаш рост: " + Person.Stature + " см." +
+                                                                                                "\nВаша активность: " + Person.Activity + 
+                                                                                                "\nВаше имя: " + Person.FIO);
 
                 }));
             }
         }
-        public int? Age
+
+        //public int? Age
+        //{
+        //    get
+        //    {
+        //        return _age;
+        //    }
+        //    set
+        //    {
+        //        _age = value;
+        //        RaisePropertyChanged(() => Age);
+        //    }
+        //}
+        //public string Gender
+        //{
+        //    get
+        //    {
+        //        return _gender;
+        //    }
+        //    set
+        //    {
+        //        _gender = value;
+        //        RaisePropertyChanged(() => Gender);
+        //    }
+        //}
+        //public double? Weight
+        //{
+        //    get
+        //    {
+        //        return _weight;
+        //    }
+        //    set
+        //    {
+        //        _weight = value;
+        //        RaisePropertyChanged(() => Weight);
+        //    }
+        //}
+        //public int? Stature
+        //{
+        //    get
+        //    {
+        //        return _stature;
+        //    }
+        //    set
+        //    {
+        //        _stature = value;
+        //        RaisePropertyChanged(() => Stature);
+        //    }
+        //}
+        public Person Person
         {
             get
             {
-                return _age;
+                return _person;
             }
             set
             {
-                _age = value;
-                RaisePropertyChanged(() => Age);
+                _person = value;
+                RaisePropertyChanged(() => Person);
             }
         }
-        public string Gender
+        public ObservableCollection<string> List_Activity
         {
             get
             {
-                return _gender;
+                return _list_activity;
             }
             set
             {
-                _gender = value;
-                RaisePropertyChanged(() => Gender);
-            }
-        }
-        public double? Weight
-        {
-            get
-            {
-                return _weight;
-            }
-            set
-            {
-                _weight = value;
-                RaisePropertyChanged(() => Weight);
-            }
-        }
-        public int? Stature
-        {
-            get
-            {
-                return _stature;
-            }
-            set
-            {
-                _stature = value;
-                RaisePropertyChanged(() => Stature);
-            }
-        }
-        public ObservableCollection<string> Activity
-        {
-            get
-            {
-                return _activity;
-            }
-            set
-            {
-                _activity = value;
-                RaisePropertyChanged(() => Activity);
+                _list_activity = value;
+                RaisePropertyChanged(() => List_Activity);
             }
         }
         public string SelectedActivity

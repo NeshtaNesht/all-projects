@@ -37,8 +37,7 @@ namespace CalculateCalories.ViewModels
                 return _commandLogin ?? (_commandLogin = new RelayCommand(async () => {
                     if (!string.IsNullOrEmpty(FieldFio) && FieldFio.Equals("Admin"))
                     {
-
-                        RootViewModel.root.CurrentContentVM = new CalculateViewModel();
+                        RootViewModel.root.CurrentContentVM = new CalculateViewModel(_fieldFio);
                     }
                     else
                         await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Внимание", "Входная строка имела неверный формат");
