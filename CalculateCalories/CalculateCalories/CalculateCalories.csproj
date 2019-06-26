@@ -74,12 +74,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\AboutDeveloperControl.xaml.cs">
+      <DependentUpon>AboutDeveloperControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AboutProgramControl.xaml.cs">
+      <DependentUpon>AboutProgramControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\GenderConverter.cs" />
+    <Compile Include="Interfaces\IGlobalFormable.cs" />
     <Compile Include="Validators\GlobalValidator.cs" />
+    <Compile Include="ViewModels\AboutDeveloperViewModel.cs" />
+    <Compile Include="ViewModels\AboutProgramViewModel.cs" />
     <Compile Include="ViewModels\AuthViewModel.cs" />
     <Compile Include="ViewModels\CalculateViewModel.cs" />
     <Compile Include="ViewModels\CaloriesViewModel.cs" />
     <Compile Include="ViewModels\RootViewModel.cs" />
+    <Page Include="Controls\AboutDeveloperControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AboutProgramControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\AuthControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,6 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\unnamed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

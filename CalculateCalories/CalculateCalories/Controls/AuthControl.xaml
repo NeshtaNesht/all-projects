@@ -2,11 +2,12 @@
     x:Class="CalculateCalories.AuthControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CalculateCalories"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:CalculateCalories.ViewModels"
-    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
     Dialog:DialogParticipation.Register="{Binding}"
     d:DesignHeight="350"
     d:DesignWidth="525"
@@ -15,50 +16,54 @@
         <vm:AuthViewModel />
     </UserControl.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+        <Grid>
+            <!--<Menu VerticalAlignment="Top">
+                <MenuItem Header="Программа">
+                    <MenuItem Name="menuOpen" Header="Открыть рассчёт" />
+                    <MenuItem Name="menuExit" Header="Выход" />
+                </MenuItem>
+                <MenuItem Header="Справка">
+                    <MenuItem Name="menuAboutProgram" Header="О программе" />
+                    <MenuItem Name="menuAboutDevelop" Header="О разработчиках" />
+                </MenuItem>
+            </Menu>-->
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.2*" />
+            </Grid.ColumnDefinitions>
 
-        <StackPanel
-            Grid.Column="0"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-            <Label
-                Name="labelLogin"
-                HorizontalAlignment="Center"
-                Content="Введите ФИО" />
-            <TextBox
-                Name="textLogin"
-                MaxWidth="200"
-                Margin="0,0,0,15"
-                VerticalAlignment="Center"
-                Text="{Binding FieldFio}" />
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-
-                <Button
-                    Name="btnLogin"
-                    MinWidth="90"
-                    Margin="0,0,20,0"
-                    Command="{Binding CommandLogin}"
-                    Content="Далее" />
-                <Button
-                    Name="btnExit"
-                    MinWidth="50"
-                    Command="{Binding CommandExit}"
-                    Content="Выход" />
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Label
+                    Name="labelLogin"
+                    HorizontalAlignment="Center"
+                    Content="Введите ФИО"
+                    FontSize="20" />
+                <TextBox
+                    Name="textLogin"
+                    MaxWidth="500"
+                    Margin="0,0,0,15"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Controls:TextBoxHelper.ClearTextButton="True"
+                    Text="{Binding FieldFio}" />
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+                        Name="btnLogin"
+                        MinWidth="90"
+                        Margin="0,0,20,0"
+                        Command="{Binding CommandLogin}"
+                        Content="Далее" />
+                    <Button
+                        Name="btnExit"
+                        MinWidth="50"
+                        Command="{Binding CommandExit}"
+                        Content="Выход" />
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-        <!--  Рисуем меню  -->
-        <Menu VerticalAlignment="Top">
-            <MenuItem Header="Файл">
-                <MenuItem Name="menuOpen" Header="Открыть" />
-                <MenuItem Name="menuExit" Header="Выход" />
-            </MenuItem>
-            <MenuItem Header="Справка">
-                <MenuItem Name="menuAboutProgram" Header="О программе" />
-                <MenuItem Name="menuAboutDevelop" Header="О разработчиках" />
-            </MenuItem>
-        </Menu>
-
+        </Grid>
     </Grid>
 </UserControl>

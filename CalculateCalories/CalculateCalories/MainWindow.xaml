@@ -1,15 +1,23 @@
-﻿<Controls:MetroWindow x:Class="CalculateCalories.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CalculateCalories"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:vm="clr-namespace:CalculateCalories.ViewModels"
-        xmlns:view="clr-namespace:CalculateCalories.Controls"
-        mc:Ignorable="d"
-        Title="Расчет каллорий" Height="350" Width="525" WindowStartupLocation="CenterScreen"
-        >
+﻿<Controls:MetroWindow
+    x:Class="CalculateCalories.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:local="clr-namespace:CalculateCalories"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:CalculateCalories.Controls"
+    xmlns:vm="clr-namespace:CalculateCalories.ViewModels"
+    Title="Расчет каллорий"
+    Width="525"
+    Height="350"
+    MinWidth="515"
+    MinHeight="340"
+    Icon="Resources/unnamed.png"
+    ShowIconOnTitleBar="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
     <Controls:MetroWindow.Resources>
         <DataTemplate DataType="{x:Type vm:AuthViewModel}">
             <local:AuthControl />
@@ -18,14 +26,44 @@
             <view:CalculateControl />
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:CaloriesViewModel}">
-            <view:CaloriesControl/>
+            <view:CaloriesControl />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AboutProgramViewModel}">
+            <view:AboutProgramControl />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AboutDeveloperViewModel}">
+            <view:AboutDeveloperControl />
         </DataTemplate>
     </Controls:MetroWindow.Resources>
     <Controls:MetroWindow.DataContext>
         <vm:RootViewModel />
     </Controls:MetroWindow.DataContext>
     <Grid>
-        <Controls:TransitioningContentControl 
-            Content="{Binding CurrentContentVM}"/>
-    </Grid>    
+        <Grid>
+            <!--  Рисуем меню  -->
+            <Menu VerticalAlignment="Top">
+                <MenuItem Header="Программа">
+                    <MenuItem
+                        Name="menuOpen"
+                        Command="{Binding CommandOpenResult}"
+                        Header="Открыть рассчёт" />
+                    <MenuItem
+                        Name="menuExit"
+                        Command="{Binding CommandExit}"
+                        Header="Выход" />
+                </MenuItem>
+                <MenuItem Header="Справка">
+                    <MenuItem
+                        Name="menuAboutProgram"
+                        Command="{Binding CommandAboutProgram}"
+                        Header="О программе" />
+                    <MenuItem
+                        Name="menuAboutDevelop"
+                        Command="{Binding CommandAboutDeveloper}"
+                        Header="О разработчиках" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Controls:TransitioningContentControl Content="{Binding CurrentContentVM}" />
+    </Grid>
 </Controls:MetroWindow>

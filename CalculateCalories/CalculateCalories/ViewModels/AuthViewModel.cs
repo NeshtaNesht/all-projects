@@ -12,7 +12,7 @@ using MahApps.Metro.Controls.Dialogs;
 
 namespace CalculateCalories.ViewModels
 {
-    public class AuthViewModel : ViewModelBase
+    public class AuthViewModel : ViewModelBase, IGlobalFormable
     {        
         public AuthViewModel()
         {
@@ -27,7 +27,10 @@ namespace CalculateCalories.ViewModels
             }
             set
             {
-                _fieldFio = value;
+                if (!string.IsNullOrEmpty(value))
+                    _fieldFio = value;
+                else
+                    value = null;
                 RaisePropertyChanged(() => FieldFio);
             }
         }
@@ -36,16 +39,20 @@ namespace CalculateCalories.ViewModels
             get
             {
                 return _commandLogin ?? (_commandLogin = new RelayCommand(async () => {
-                    if (!string.IsNullOrEmpty(FieldFio) && FieldFio.Equals("Admin"))
+                    if (_fieldFio == null)
                     {
-                        Person person = new Person
-                        {
-                            FIO = _fieldFio
-                        };
-                        RootViewModel.root.CurrentContentVM = new CalculateViewModel(person);
+                        await RootViewModel.DialogCoordinator.ShowMessageAsync(this,
+                                                                                "Внимание",
+                                                                                "Входная строка имела неверный формат",
+                                                                                MessageDialogStyle.Affirmative,
+                                                                                new MetroDialogSettings { AnimateShow = true });
+                        return;
                     }
-                    else
-                        await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Внимание", "Входная строка имела неверный формат");
+                    Person person = new Person
+                    {
+                        FIO = _fieldFio
+                    };
+                    RootViewModel.root.CurrentContentVM = new CalculateViewModel(person);                    
                 }));
             }
         }

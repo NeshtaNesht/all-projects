@@ -13,7 +13,7 @@ using MahApps.Metro.Controls.Dialogs;
 
 namespace CalculateCalories.ViewModels
 {
-    class CalculateViewModel : ViewModelBase
+    class CalculateViewModel : ViewModelBase, IGlobalFormable
     {
         private Person _person;
         private ObservableCollection<string> _list_activity;        
@@ -26,20 +26,11 @@ namespace CalculateCalories.ViewModels
         {
             get
             {
-                return _commandCalculate ?? (_commandCalculate = new RelayCommand(() => {
-                    //await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Ваши данные", "Ваш возраст: " + Person.Age +
-                    //                                                                            "\nВаш пол: " + Person.Gender +
-                    //                                                                            "\nВаш вес: " + Person.Weight + " кг." +
-                    //                                                                            "\nВаш рост: " + Person.Stature + " см." +
-                    //                                                                            "\nВаша активность: " + Person.Activity + 
-                    //                                                                            "\nВаше имя: " + Person.FIO + 
-                    //                                                                            "\nКоэффициент:" + Person.GetCoefficient());
+                return _commandCalculate ?? (_commandCalculate = new RelayCommand(() => {                    
                     RootViewModel.root.CurrentContentVM = new CaloriesViewModel(Person);
-
                 }));
             }
         }
-
         public Person Person
         {
             get
