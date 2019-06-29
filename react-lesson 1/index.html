@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <style>
+    .car {
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 1px;
+      margin: 2px 2px 2px 1px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>  
+  <script type="text/babel">
+
+      function Car(props) {
+        return (
+          <div className="car">
+            <h3>{props.name}</h3>
+            <p>Year: <strong>{props.year}</strong></p>
+          </div>
+        )
+      }
+      
+      const App = (
+        <div>
+            <Car name="Ford Focus" year="2016" />
+            <Car name="Audi A8" year="2010" />
+            <Car name="Mazda 3" year="2007" />  
+        </div>
+      )
+
+      ReactDOM.render(
+        App,
+        document.querySelector('#root')
+      )
+    </script>
+</body>
+
+</html>

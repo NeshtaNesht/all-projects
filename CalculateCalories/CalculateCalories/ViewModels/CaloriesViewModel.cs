@@ -92,14 +92,14 @@ namespace CalculateCalories.ViewModels
             get
             {
                 return _saveCommand ?? (_saveCommand = new RelayCommand(async () => {
-                    var s = await RootViewModel.DialogCoordinator.ShowInputAsync(this, "Имя файла", "Введите имя файла");                    
-                    if (s == null)
-                        return;
-                    string result = Person.SaveResultInXML(GridCalories, s);
-                    if (result == null)
-                        await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Сохранить", "Данные успешно сохранены");
-                    else
-                        await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Ошибка при сохранении", result);
+                    //var s = await RootViewModel.DialogCoordinator.ShowInputAsync(this, "Имя файла", "Введите имя файла");                    
+                    //if (s == null)
+                    //    return;
+                    //string result = Person.SaveResultInXML(GridCalories, s);
+                    //if (result == null)
+                    //    await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Сохранить", "Данные успешно сохранены");
+                    //else
+                    //    await RootViewModel.DialogCoordinator.ShowMessageAsync(this, "Ошибка при сохранении", result);
                 }));
             }
         }
