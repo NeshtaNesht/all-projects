@@ -4,7 +4,9 @@ import Car from "./Car/Car.js";
 
 class App extends Component {
   state = {
+    //ключ cars имеет массив
     cars: [
+      //Описание объектов в массиве
       { name: "Ford Focus 3", year: "2018" },
       { name: "Audi A3", year: "2007" },
       { name: "Mazda 3", year: "2007" }
@@ -32,6 +34,7 @@ class App extends Component {
   }
 
   showCarsHandler = () => {
+    //Изменение состояния по ключу
     this.setState({
       showCars: !this.state.showCars
     });
