@@ -6,7 +6,7 @@ class App extends Component {
   state = {
     //ключ cars имеет массив
     cars: [
-      //Описание объектов в массиве
+      //Описание объектов в массивеgit
       { name: "Ford Focus 3", year: "2018" },
       { name: "Audi A3", year: "2007" },
       { name: "Mazda 3", year: "2007" }
