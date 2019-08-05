@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import classes from "./App.scss";
 import Car from "./Car/Car.js";
 
 class App extends Component {
@@ -44,7 +44,9 @@ class App extends Component {
     const divStyle = {
       margin: "10px",
       border: "1px solid #ccc",
-      padding: "20px"
+      padding: "20px",     
+      textAlign: 'center' 
+      
     };
 
     let nameButton = this.state.showCars ? "HIDE" : "SHOW";
@@ -66,7 +68,7 @@ class App extends Component {
         })
       : null;
     return (
-      <div className="App" style={divStyle}>
+      <div style={divStyle}>
         <h2>{this.state.pageTitle}</h2>
         <div style={{
           width: 400,
@@ -75,7 +77,10 @@ class App extends Component {
         }}>
           {cars}
         </div>        
-        <button onClick={this.showCarsHandler}>{nameButton}</button>
+        <button 
+          className={'AppButton'}
+          onClick={this.showCarsHandler}>
+        {nameButton}</button>
       </div>
     );
   }
